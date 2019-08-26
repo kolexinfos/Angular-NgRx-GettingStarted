@@ -23,8 +23,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   selectedProduct: Product | null;
   sub: Subscription;
 
-  constructor(private productService: ProductService,
-     private store: Store<any>)
+  constructor(private productService: ProductService, private store: Store<any>)
      { }
 
   ngOnInit(): void {
@@ -39,11 +38,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this.store.pipe(select('products')).subscribe(
       products => {
-        if(products){
+        if (products) {
           this.displayCode = products.showProductCode;
         }
       }
-    )
+    );
 
   }
 
@@ -57,7 +56,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.store.dispatch({
       type: 'TOGGLE_PRODUCT_CODE',
       payload: value
-    })
+    });
   }
 
   newProduct(): void {
